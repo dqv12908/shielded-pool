@@ -13,3 +13,7 @@ anchor/test-ledger
 anchor/.yarn
 anchor/deploy-keypair.json
 anchor/zkcash-keypair.json
+# shielded-pool fork
+keys/
+anchor/client/.wallets/
+anchor/client/.cache/

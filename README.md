@@ -1,3 +1,7 @@
+> **This is an unofficial, unaudited fork of [Privacy Cash](https://github.com/Privacy-Cash/privacy-cash), not the Privacy Cash project.**
+> It removes every admin power (fees, deposit limits, token allowlist, upgrade key) and uses a fresh trusted setup.
+> The audits and on-chain hash below apply to upstream, not to this fork. **Start with [FORK.md](FORK.md).**
+
 # Privacy Cash
 
 Transfer SOL privately. Private SPL tokens transfer and private swap will soon follow.

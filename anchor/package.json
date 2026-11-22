@@ -3,15 +3,19 @@
   "scripts": {
     "lint:fix": "prettier */*.js \"*/**/*{.js,.ts}\" -w",
     "lint": "prettier */*.js \"*/**/*{.js,.ts}\" --check",
-    "test:spl": "TEST_FILES='tests/spl_tests.ts' anchor test -- --features localnet",
-    "test:sol": "TEST_FILES='tests/sol_tests.ts' anchor test -- --features localnet",
-    "test:mint-checked": "TEST_FILES='tests/spl_mint_test.ts' anchor test -- --features localnet-mint-checked"
+    "test:spl": "TEST_FILES=tests/spl_tests.ts anchor test",
+    "test:sol": "TEST_FILES=tests/sol_tests.ts anchor test",
+    "e2e:localnet": "ts-node -P client/tsconfig.json client/e2e.ts --cluster localnet",
+    "e2e:devnet": "ts-node -P client/tsconfig.json client/e2e.ts --cluster devnet",
+    "cli": "ts-node -P client/tsconfig.json client/cli.ts"
   },
   "dependencies": {
     "@coral-xyz/anchor": "^0.31.0",
     "@solana/spl-token": "^0.4.14",
     "circomlib": "^2.0.5",
-    "ffjavascript": "^0.3.1"
+    "ffjavascript": "^0.3.1",
+    "tweetnacl": "^1.0.3",
+    "@solana/web3.js": "^1.98.0"
   },
   "devDependencies": {
     "@ethersproject/sha2": "^5.8.0",
@@ -28,6 +32,8 @@
     "snarkjs": "^0.7.5",
     "tmp-promise": "^3.0.2",
     "ts-mocha": "^10.0.0",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "ts-node": "^10.9.2",
+    "@types/node": "^22.10.0"
   }
 }

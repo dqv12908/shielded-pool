@@ -178,7 +178,7 @@ describe("zkcash", () => {
         treeAccount: treeAccountPDA,
         treeTokenAccount: treeTokenAccountPDA,
         globalConfig: globalConfigPDA,
-        authority: authority.publicKey,
+        payer: authority.publicKey,
         systemProgram: anchor.web3.SystemProgram.programId
       })
       .signers([authority]) // Only authority is a signer
@@ -195,7 +195,6 @@ describe("zkcash", () => {
 
     // Verify the initialization was successful
     const merkleTreeAccount = await program.account.merkleTreeAccount.fetch(treeAccountPDA);
-    expect(merkleTreeAccount.authority.equals(authority.publicKey)).to.be.true;
     expect(merkleTreeAccount.nextIndex.toString()).to.equal("0");
     expect(merkleTreeAccount.rootIndex.toString()).to.equal("0");
     expect(merkleTreeAccount.rootHistory.length).to.equal(ROOT_HISTORY_SIZE);
@@ -360,7 +359,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey,
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -496,7 +495,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey,
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -643,7 +642,7 @@ describe("zkcash", () => {
           recipient: recipient.publicKey,
           feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
           treeTokenAccount: treeTokenAccountPDA,
-          globalConfig: globalConfigPDA,
+          
           signer: randomUser.publicKey,
           systemProgram: anchor.web3.SystemProgram.programId
         })
@@ -825,7 +824,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey, // Use random user as signer
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -1042,7 +1041,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey,
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -1276,7 +1275,7 @@ describe("zkcash", () => {
         recipient: pdaRecipient, // Use PDA recipient to match ExtData
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey, // Use random user as signer
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -1496,7 +1495,7 @@ describe("zkcash", () => {
         recipient: pdaRecipient, // Use PDA as recipient in transaction accounts
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey,
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -1733,7 +1732,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey, // Use normal recipient account
         feeRecipientAccount: pdaFeeRecipient, // Use PDA fee recipient to match ExtData
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey, // Use random user as signer
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -1953,7 +1952,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey, // Use normal recipient account
         feeRecipientAccount: pdaFeeRecipient, // Use PDA as fee recipient in transaction accounts
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey,
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -2169,7 +2168,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey, // Use random user as signer
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -2385,7 +2384,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey,
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -2595,7 +2594,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey, // Use random user as signer
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -2813,7 +2812,7 @@ describe("zkcash", () => {
           recipient: attacker.publicKey, // Attacker tries to replace recipient with their own address
           feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
           treeTokenAccount: treeTokenAccountPDA,
-          globalConfig: globalConfigPDA,
+          
           signer: randomUser.publicKey,
           systemProgram: anchor.web3.SystemProgram.programId
         })
@@ -2999,7 +2998,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey, // Use random user as signer
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -3215,7 +3214,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey,
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -3426,7 +3425,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey, // Use random user as signer
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -3642,7 +3641,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey,
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -3853,7 +3852,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey, // Use random user as signer
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -4069,7 +4068,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey,
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -4282,7 +4281,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey, // Use random user as signer
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -4498,7 +4497,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey,
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -4628,7 +4627,7 @@ describe("zkcash", () => {
           recipient: recipient.publicKey,
           feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
           treeTokenAccount: treeTokenAccountPDA,
-          globalConfig: globalConfigPDA,
+          
           signer: randomUser.publicKey, // Use random user as signer
           systemProgram: anchor.web3.SystemProgram.programId
         })
@@ -4723,7 +4722,7 @@ describe("zkcash", () => {
           recipient: recipient.publicKey,
           feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
           treeTokenAccount: treeTokenAccountPDA,
-          globalConfig: globalConfigPDA,
+          
           signer: randomUser.publicKey, // Use random user as signer
           systemProgram: anchor.web3.SystemProgram.programId
         })
@@ -4822,7 +4821,7 @@ describe("zkcash", () => {
           recipient: recipient.publicKey,
           feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
           treeTokenAccount: treeTokenAccountPDA,
-          globalConfig: globalConfigPDA,
+          
           signer: randomUser.publicKey, // Use random user as signer
           systemProgram: anchor.web3.SystemProgram.programId
         })
@@ -4919,7 +4918,7 @@ describe("zkcash", () => {
           recipient: recipient.publicKey,
           feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
           treeTokenAccount: treeTokenAccountPDA,
-          globalConfig: globalConfigPDA,
+          
           signer: randomUser.publicKey,
           systemProgram: anchor.web3.SystemProgram.programId
         })
@@ -4957,380 +4956,6 @@ describe("zkcash", () => {
         errorString.includes("ExtDataHashMismatch") ||
         errorString.includes("Transaction simulation failed")
       ).to.be.true;
-    }
-  });
-
-  it("Fails to deposit when exceeding the default deposit limit", async () => {
-    // The default deposit limit is 1000 lamports
-    const excessiveAmount = 1001; // Just above the limit
-    
-    const extData = {
-      recipient: recipient.publicKey,
-      extAmount: new anchor.BN(excessiveAmount),
-      encryptedOutput1: Buffer.from("encryptedOutput1Data"),
-      encryptedOutput2: Buffer.from("encryptedOutput2Data"),
-      fee: new anchor.BN(10),
-      feeRecipient: FEE_RECIPIENT_ACCOUNT,
-      mintAddress: new anchor.web3.PublicKey("11111111111111111111111111111112"), // SOL mint address
-    };
-
-    // Calculate the correct extDataHash
-    const calculatedExtDataHash = getExtDataHash(extData);
-    
-    // Create a Proof object with correct hash
-    const proof = {
-      proofA: Array(64).fill(1), // 64-byte array for proofA
-      proofB: Array(128).fill(2), // 128-byte array for proofB  
-      proofC: Array(64).fill(3), // 64-byte array for proofC
-      root: ZERO_BYTES[DEFAULT_HEIGHT],
-      inputNullifiers: [
-        Array.from(generateRandomNullifier()),
-        Array.from(generateRandomNullifier())
-      ],
-      outputCommitments: [
-        Array(32).fill(3),
-        Array(32).fill(4)
-      ],
-      publicAmount: bnToBytes(new anchor.BN(excessiveAmount - 10)), // Amount minus fee
-      extDataHash: Array.from(calculatedExtDataHash)
-    };
-
-    // Get nullifier PDAs
-    const { nullifier0PDA, nullifier1PDA } = findNullifierPDAs(program, proof);
-    const { nullifier2PDA, nullifier3PDA } = findCrossCheckNullifierPDAs(program, proof);
-
-    try {
-      // Create the compute units instruction
-      const modifyComputeUnits = anchor.web3.ComputeBudgetProgram.setComputeUnitLimit({ 
-        units: 1_000_000 
-      });
-      
-      // Execute the transaction - this should fail because of exceeding deposit limit
-      const tx = await program.methods
-        .transact(proof, createExtDataMinified(extData), extData.encryptedOutput1, extData.encryptedOutput2)
-        .accounts({
-          treeAccount: treeAccountPDA,
-          nullifier0: nullifier0PDA,
-          nullifier1: nullifier1PDA,
-          nullifier2: nullifier2PDA,
-          nullifier3: nullifier3PDA,
-          recipient: recipient.publicKey,
-          feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
-          treeTokenAccount: treeTokenAccountPDA,
-          globalConfig: globalConfigPDA,
-          signer: randomUser.publicKey,
-          systemProgram: anchor.web3.SystemProgram.programId
-        })
-        .signers([randomUser])
-        .preInstructions([modifyComputeUnits])
-        .transaction();
-      
-      // Create v0 transaction to allow larger size
-      const latestBlockhash = await provider.connection.getLatestBlockhash();
-      const messageLegacy = new anchor.web3.TransactionMessage({
-        payerKey: randomUser.publicKey,
-        recentBlockhash: latestBlockhash.blockhash,
-        instructions: tx.instructions,
-      }).compileToLegacyMessage();
-      
-      // Create a versioned transaction
-      const transactionV0 = new anchor.web3.VersionedTransaction(messageLegacy);
-      
-      // Sign the transaction
-      transactionV0.sign([randomUser]);
-      
-      // Send and confirm transaction - this should fail
-      await provider.connection.sendTransaction(transactionV0, {
-        skipPreflight: false,
-        preflightCommitment: 'confirmed',
-      });
-      
-      // If we reach here, the test should fail because the transaction should have thrown an error
-      expect.fail("Transaction should have failed due to exceeding deposit limit but succeeded");
-    } catch (error) {
-      // Check for the deposit limit exceeded error
-      const errorString = error.toString();
-      expect(
-        errorString.includes("0x1773") || 
-        errorString.includes("DepositLimitExceeded") ||
-        errorString.includes("Transaction simulation failed")
-      ).to.be.true;
-    }
-  });
-
-    it("Authority can update deposit limit", async () => {
-    const newLimit = new anchor.BN(2_000_000_000); // 2 SOL
-    
-    // Create Address Lookup Table for transaction size optimization
-    const testProtocolAddresses = getTestProtocolAddresses(
-      program.programId,
-      authority.publicKey,
-      FEE_RECIPIENT_ACCOUNT
-    );
-    
-    const lookupTableAddress = await createGlobalTestALT(provider.connection, authority, testProtocolAddresses);
-
-    const modifyComputeUnits = anchor.web3.ComputeBudgetProgram.setComputeUnitLimit({ 
-      units: 1_000_000 
-    });
-    
-    const tx = await program.methods
-      .updateDepositLimit(newLimit)
-      .accounts({
-        treeAccount: treeAccountPDA,
-        authority: authority.publicKey,
-      })
-      .signers([authority])
-      .preInstructions([modifyComputeUnits])
-      .transaction();
-
-    // Create versioned transaction with ALT
-    const versionedTx = await createVersionedTransactionWithALT(
-      provider.connection,
-      authority.publicKey,
-      tx.instructions,
-      lookupTableAddress
-    );
-    
-    // Send and confirm versioned transaction
-    const txSig = await sendAndConfirmVersionedTransaction(
-      provider.connection,
-      versionedTx,
-      [authority]
-    );
-
-    expect(txSig).to.be.a('string');
-
-    // Verify the limit was updated
-    const merkleTreeAccount = await program.account.merkleTreeAccount.fetch(treeAccountPDA);
-    expect(merkleTreeAccount.maxDepositAmount.toString()).to.equal(newLimit.toString());
-  });
-
-  it("Non-authority cannot update deposit limit", async () => {
-    const newLimit = new anchor.BN(3_000_000_000); // 3 SOL
-    const nonAuthority = anchor.web3.Keypair.generate();
-    
-    // Fund the non-authority account
-    const transferTx = new anchor.web3.Transaction().add(
-      anchor.web3.SystemProgram.transfer({
-        fromPubkey: fundingAccount.publicKey,
-        toPubkey: nonAuthority.publicKey,
-        lamports: 0.5 * LAMPORTS_PER_SOL,
-      })
-    );
-    
-    const transferSignature = await provider.connection.sendTransaction(transferTx, [fundingAccount]);
-    await provider.connection.confirmTransaction(transferSignature);
-
-    // Create Address Lookup Table for transaction size optimization
-    const testProtocolAddresses = getTestProtocolAddresses(
-      program.programId,
-      authority.publicKey,
-      FEE_RECIPIENT_ACCOUNT
-    );
-    
-    const lookupTableAddress = await createGlobalTestALT(provider.connection, nonAuthority, testProtocolAddresses);
-
-    try {
-      const modifyComputeUnits = anchor.web3.ComputeBudgetProgram.setComputeUnitLimit({ 
-        units: 1_000_000 
-      });
-      
-      const tx = await program.methods
-        .updateDepositLimit(newLimit)
-        .accounts({
-          treeAccount: treeAccountPDA,
-          authority: nonAuthority.publicKey,
-        })
-        .signers([nonAuthority])
-        .preInstructions([modifyComputeUnits])
-        .transaction();
-
-      // Create versioned transaction with ALT
-      const versionedTx = await createVersionedTransactionWithALT(
-        provider.connection,
-        nonAuthority.publicKey,
-        tx.instructions,
-        lookupTableAddress
-      );
-      
-      // Send and confirm versioned transaction - this should fail
-      await sendAndConfirmVersionedTransaction(
-        provider.connection,
-        versionedTx,
-        [nonAuthority]
-      );
-
-      expect.fail("Transaction should have failed due to unauthorized access");
-    } catch (error) {
-      const errorString = error.toString();
-      expect(
-        errorString.includes("0x1770") ||
-        errorString.includes("Unauthorized") ||
-        errorString.includes("Not authorized to perform this action") ||
-        errorString.includes("custom program error")
-      ).to.be.true;
-    }
-  });
-
-  it("Can deposit after increasing limit", async () => {
-    // First, update the limit to 2 SOL
-    const newLimit = new anchor.BN(2_000_000_000); // 2 SOL
-    
-    await program.methods
-      .updateDepositLimit(newLimit)
-      .accounts({
-        treeAccount: treeAccountPDA,
-        authority: authority.publicKey,
-      })
-      .signers([authority])
-      .rpc();
-
-    // Fund randomUser with enough SOL for the large deposit
-    const largeFundingTx = new anchor.web3.Transaction().add(
-      anchor.web3.SystemProgram.transfer({
-        fromPubkey: fundingAccount.publicKey,
-        toPubkey: randomUser.publicKey,
-        lamports: 1 * LAMPORTS_PER_SOL, // Add 1 more SOL
-      })
-    );
-    const largeFundingSignature = await provider.connection.sendTransaction(largeFundingTx, [fundingAccount]);
-    await provider.connection.confirmTransaction(largeFundingSignature);
-
-    // Now try to deposit 1.5 SOL (which should now be allowed)
-    const depositAmountLamports = 1_500_000_000; // 1.5 SOL
-    const depositFee = new anchor.BN(calculateDepositFee(depositAmountLamports));
-    const depositAmount = new anchor.BN(depositAmountLamports);
-    
-    const extData = {
-      recipient: recipient.publicKey,
-      extAmount: depositAmount,
-      encryptedOutput1: Buffer.from("encryptedOutput1Data"),
-      encryptedOutput2: Buffer.from("encryptedOutput2Data"),
-      fee: depositFee,
-      feeRecipient: FEE_RECIPIENT_ACCOUNT,
-      mintAddress: new anchor.web3.PublicKey("11111111111111111111111111111112"), // SOL mint address
-    };
-
-    // Create the merkle tree
-    const tree: MerkleTree = globalMerkleTree;
-
-    // Create inputs for the deposit
-    const inputs = [
-      new Utxo({ lightWasm }),
-      new Utxo({ lightWasm })
-    ];
-
-    const publicAmountNumber = extData.extAmount.sub(depositFee);
-    const outputAmount = publicAmountNumber.toString();
-    const outputs = [
-      new Utxo({ lightWasm, amount: outputAmount, index: globalMerkleTree._layers[0].length }),
-      new Utxo({ lightWasm, amount: '0' })
-    ];
-
-    // Create mock Merkle path data
-    const inputMerklePathIndices = inputs.map((input) => input.index || 0);
-    const inputMerklePathElements = inputs.map(() => {
-      return [...new Array(tree.levels).fill(0)];
-    });
-
-    // Resolve async operations
-    const inputNullifiers = await Promise.all(inputs.map(x => x.getNullifier()));
-    const outputCommitments = await Promise.all(outputs.map(x => x.getCommitment()));
-    const root = tree.root();
-    const calculatedExtDataHash = getExtDataHash(extData);
-
-    const input = {
-      root: root,
-      inputNullifier: inputNullifiers,
-      outputCommitment: outputCommitments,
-      publicAmount: outputAmount.toString(),
-      extDataHash: calculatedExtDataHash,
-      inAmount: inputs.map(x => x.amount.toString(10)),
-      inPrivateKey: inputs.map(x => x.keypair.privkey),
-      inBlinding: inputs.map(x => x.blinding.toString(10)),
-      mintAddress: inputs[0].mintAddress,
-      inPathIndices: inputMerklePathIndices,
-      inPathElements: inputMerklePathElements,
-      outAmount: outputs.map(x => x.amount.toString(10)),
-      outBlinding: outputs.map(x => x.blinding.toString(10)),
-      outPubkey: outputs.map(x => x.keypair.pubkey),
-    };
-
-    // Generate proof
-    const keyBasePath = path.resolve(__dirname, '../../artifacts/circuits/transaction2');
-    const {proof, publicSignals} = await prove(input, keyBasePath);
-
-    const proofInBytes = parseProofToBytesArray(proof);
-    const inputsInBytes = parseToBytesArray(publicSignals);
-    
-    const proofToSubmit = {
-      proofA: proofInBytes.proofA,
-      proofB: proofInBytes.proofB.flat(),
-      proofC: proofInBytes.proofC,
-      root: inputsInBytes[0],
-      publicAmount: inputsInBytes[1],
-      extDataHash: inputsInBytes[2],
-      inputNullifiers: [inputsInBytes[3], inputsInBytes[4]],
-      outputCommitments: [inputsInBytes[5], inputsInBytes[6]],
-    };
-
-    // Derive PDAs
-    const { nullifier0PDA, nullifier1PDA } = findNullifierPDAs(program, proofToSubmit);
-    const crossCheckNullifiers = findCrossCheckNullifierPDAs(program, proofToSubmit);;
-
-    // Create Address Lookup Table for transaction size optimization
-    const testProtocolAddresses = getTestProtocolAddresses(
-      program.programId,
-      authority.publicKey,
-      FEE_RECIPIENT_ACCOUNT
-    );
-    
-    const lookupTableAddress = await createGlobalTestALT(provider.connection, authority, testProtocolAddresses);
-
-    // Execute the transaction - should now succeed
-    const modifyComputeUnits = anchor.web3.ComputeBudgetProgram.setComputeUnitLimit({ 
-      units: 1_000_000 
-    });
-    
-    const tx = await program.methods
-      .transact(proofToSubmit, createExtDataMinified(extData), extData.encryptedOutput1, extData.encryptedOutput2)
-      .accounts({
-        treeAccount: treeAccountPDA,
-        nullifier0: nullifier0PDA,
-        nullifier1: nullifier1PDA,
-        nullifier2: crossCheckNullifiers.nullifier2PDA,
-        nullifier3: crossCheckNullifiers.nullifier3PDA,
-        recipient: recipient.publicKey,
-        feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
-        treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
-        signer: randomUser.publicKey,
-        systemProgram: anchor.web3.SystemProgram.programId
-      })
-      .signers([randomUser])
-      .preInstructions([modifyComputeUnits])
-      .transaction();
-
-    // Create versioned transaction with ALT
-    const versionedTx = await createVersionedTransactionWithALT(
-      provider.connection,
-      randomUser.publicKey,
-      tx.instructions,
-      lookupTableAddress
-    );
-    
-    // Send and confirm versioned transaction
-    const txSig = await sendAndConfirmVersionedTransaction(
-      provider.connection,
-      versionedTx,
-      [randomUser]
-    );
-
-    expect(txSig).to.be.a('string');
-
-    for (const commitment of outputCommitments) {
-      tree.insert(commitment);
     }
   });
 
@@ -5449,7 +5074,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey,
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -5585,7 +5210,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey,
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -5736,7 +5361,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey,
         systemProgram: anchor.web3.SystemProgram.programId
       })
@@ -5896,7 +5521,7 @@ describe("zkcash", () => {
           recipient: recipient.publicKey,
           feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
           treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
           signer: randomUser.publicKey,
           systemProgram: anchor.web3.SystemProgram.programId
         })
@@ -5988,7 +5613,7 @@ describe("zkcash", () => {
           recipient: recipient.publicKey,
           feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
           treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
           signer: randomUser.publicKey,
           systemProgram: anchor.web3.SystemProgram.programId
         })
@@ -6027,336 +5652,6 @@ describe("zkcash", () => {
         errorString.includes("Transaction simulation failed")
       ).to.be.true;
     }
-  });
-
-  it("Authority can update global config - fee recipient", async () => {
-    const newFeeRecipient = anchor.web3.Keypair.generate();
-    
-    // Create Address Lookup Table for transaction size optimization
-    const testProtocolAddresses = getTestProtocolAddresses(
-      program.programId,
-      authority.publicKey,
-      FEE_RECIPIENT_ACCOUNT
-    );
-    
-    const lookupTableAddress = await createGlobalTestALT(provider.connection, authority, testProtocolAddresses);
-
-    const modifyComputeUnits = anchor.web3.ComputeBudgetProgram.setComputeUnitLimit({ 
-      units: 1_000_000 
-    });
-    
-    const tx = await program.methods
-      .updateGlobalConfig(
-        null, // deposit_fee_rate
-        null, // withdrawal_fee_rate  
-        null  // fee_error_margin
-      )
-      .accounts({
-        globalConfig: globalConfigPDA,
-        authority: authority.publicKey,
-      })
-      .signers([authority])
-      .preInstructions([modifyComputeUnits])
-      .transaction();
-
-    // Create versioned transaction with ALT
-    const versionedTx = await createVersionedTransactionWithALT(
-      provider.connection,
-      authority.publicKey,
-      tx.instructions,
-      lookupTableAddress
-    );
-    
-    // Send and confirm versioned transaction
-    const txSig = await sendAndConfirmVersionedTransaction(
-      provider.connection,
-      versionedTx,
-      [authority]
-    );
-
-    expect(txSig).to.be.a('string');
-  });
-
-  it("Authority can update global config - deposit fee rate", async () => {
-    const newDepositFeeRate = 50; // 0.5%
-    
-    const modifyComputeUnits = anchor.web3.ComputeBudgetProgram.setComputeUnitLimit({ 
-      units: 1_000_000 
-    });
-    
-    await program.methods
-      .updateGlobalConfig(
-        newDepositFeeRate, // deposit_fee_rate
-        null, // withdrawal_fee_rate
-        null  // fee_error_margin
-      )
-      .accounts({
-        globalConfig: globalConfigPDA,
-        authority: authority.publicKey,
-      })
-      .signers([authority])
-      .preInstructions([modifyComputeUnits])
-      .rpc();
-
-    // Verify the deposit fee rate was updated
-    const globalConfig = await program.account.globalConfig.fetch(globalConfigPDA);
-    expect(globalConfig.depositFeeRate).to.equal(newDepositFeeRate);
-  });
-
-  it("Authority can update global config - withdrawal fee rate", async () => {
-    const newWithdrawalFeeRate = 100; // 1%
-    
-    const modifyComputeUnits = anchor.web3.ComputeBudgetProgram.setComputeUnitLimit({ 
-      units: 1_000_000 
-    });
-    
-    await program.methods
-      .updateGlobalConfig(
-        null, // deposit_fee_rate
-        newWithdrawalFeeRate, // withdrawal_fee_rate
-        null  // fee_error_margin
-      )
-      .accounts({
-        globalConfig: globalConfigPDA,
-        authority: authority.publicKey,
-      })
-      .signers([authority])
-      .preInstructions([modifyComputeUnits])
-      .rpc();
-
-    // Verify the withdrawal fee rate was updated
-    const globalConfig = await program.account.globalConfig.fetch(globalConfigPDA);
-    expect(globalConfig.withdrawalFeeRate).to.equal(newWithdrawalFeeRate);
-  });
-
-  it("Authority can update global config - fee error margin", async () => {
-    const newFeeErrorMargin = 1000; // 10%
-    
-    const modifyComputeUnits = anchor.web3.ComputeBudgetProgram.setComputeUnitLimit({ 
-      units: 1_000_000 
-    });
-    
-    await program.methods
-      .updateGlobalConfig(
-        null, // deposit_fee_rate
-        null, // withdrawal_fee_rate
-        newFeeErrorMargin  // fee_error_margin
-      )
-      .accounts({
-        globalConfig: globalConfigPDA,
-        authority: authority.publicKey,
-      })
-      .signers([authority])
-      .preInstructions([modifyComputeUnits])
-      .rpc();
-
-    // Verify the fee error margin was updated
-    const globalConfig = await program.account.globalConfig.fetch(globalConfigPDA);
-    expect(globalConfig.feeErrorMargin).to.equal(newFeeErrorMargin);
-  });
-
-  it("Authority can update multiple global config parameters at once", async () => {
-    const newFeeRecipient = new PublicKey(FEE_RECIPIENT_ACCOUNT);
-    const newDepositFeeRate = 75; // 0.75%
-    const newWithdrawalFeeRate = 150; // 1.5%
-    const newFeeErrorMargin = 250; // 2.5%
-    
-    const modifyComputeUnits = anchor.web3.ComputeBudgetProgram.setComputeUnitLimit({ 
-      units: 1_000_000 
-    });
-    
-    await program.methods
-      .updateGlobalConfig(
-        newDepositFeeRate, // deposit_fee_rate
-        newWithdrawalFeeRate, // withdrawal_fee_rate
-        newFeeErrorMargin  // fee_error_margin
-      )
-      .accounts({
-        globalConfig: globalConfigPDA,
-        authority: authority.publicKey,
-      })
-      .signers([authority])
-      .preInstructions([modifyComputeUnits])
-      .rpc();
-
-    // Verify all parameters were updated
-    const globalConfig = await program.account.globalConfig.fetch(globalConfigPDA);
-    expect(globalConfig.depositFeeRate).to.equal(newDepositFeeRate);
-    expect(globalConfig.withdrawalFeeRate).to.equal(newWithdrawalFeeRate);
-    expect(globalConfig.feeErrorMargin).to.equal(newFeeErrorMargin);
-  });
-
-  it("Non-authority cannot update global config", async () => {
-    const nonAuthority = anchor.web3.Keypair.generate();
-    
-    // Fund the non-authority account
-    const transferTx = new anchor.web3.Transaction().add(
-      anchor.web3.SystemProgram.transfer({
-        fromPubkey: fundingAccount.publicKey,
-        toPubkey: nonAuthority.publicKey,
-        lamports: 0.5 * LAMPORTS_PER_SOL,
-      })
-    );
-    
-    const transferSignature = await provider.connection.sendTransaction(transferTx, [fundingAccount]);
-    await provider.connection.confirmTransaction(transferSignature);
-
-    try {
-      const modifyComputeUnits = anchor.web3.ComputeBudgetProgram.setComputeUnitLimit({ 
-        units: 1_000_000 
-      });
-      
-      await program.methods
-        .updateGlobalConfig(
-          100,  // deposit_fee_rate
-          null, // withdrawal_fee_rate
-          null  // fee_error_margin
-        )
-        .accounts({
-          globalConfig: globalConfigPDA,
-          authority: nonAuthority.publicKey,
-        })
-        .signers([nonAuthority])
-        .preInstructions([modifyComputeUnits])
-        .rpc();
-
-      expect.fail("Transaction should have failed due to unauthorized access");
-    } catch (error) {
-      const errorString = error.toString();
-      expect(
-        errorString.includes("ConstraintSeeds") ||
-        errorString.includes("0x7d6") ||
-        errorString.includes("constraint was violated") ||
-        errorString.includes("seeds constraint was violated") ||
-        errorString.includes("Unauthorized") ||
-        errorString.includes("0x1775") ||
-        errorString.includes("Error") ||
-        errorString.includes("failed")
-      ).to.be.true;
-    }
-  });
-
-  it("Fails to update global config with invalid fee rate (> 10000)", async () => {
-    try {
-      const modifyComputeUnits = anchor.web3.ComputeBudgetProgram.setComputeUnitLimit({ 
-        units: 1_000_000 
-      });
-      
-      await program.methods
-        .updateGlobalConfig(
-          15000, // deposit_fee_rate (150% - invalid)
-          null, // withdrawal_fee_rate
-          null  // fee_error_margin
-        )
-        .accounts({
-          globalConfig: globalConfigPDA,
-          authority: authority.publicKey,
-        })
-        .signers([authority])
-        .preInstructions([modifyComputeUnits])
-        .rpc();
-
-      expect.fail("Transaction should have failed due to invalid fee rate");
-    } catch (error) {
-      const errorString = error.toString();
-      expect(
-        errorString.includes("0x1776") || 
-        errorString.includes("InvalidFeeRate") ||
-        errorString.includes("custom program error")
-      ).to.be.true;
-    }
-  });
-
-  it("Fails to update global config with invalid withdrawal fee rate (> 10000)", async () => {
-    try {
-      const modifyComputeUnits = anchor.web3.ComputeBudgetProgram.setComputeUnitLimit({ 
-        units: 1_000_000 
-      });
-      
-      await program.methods
-        .updateGlobalConfig(
-          null, // deposit_fee_rate
-          12000, // withdrawal_fee_rate (120% - invalid)
-          null  // fee_error_margin
-        )
-        .accounts({
-          globalConfig: globalConfigPDA,
-          authority: authority.publicKey,
-        })
-        .signers([authority])
-        .preInstructions([modifyComputeUnits])
-        .rpc();
-
-      expect.fail("Transaction should have failed due to invalid withdrawal fee rate");
-    } catch (error) {
-      const errorString = error.toString();
-      expect(
-        errorString.includes("0x1776") || 
-        errorString.includes("InvalidFeeRate") ||
-        errorString.includes("custom program error")
-      ).to.be.true;
-    }
-  });
-
-  it("Fails to update global config with invalid fee error margin (> 10000)", async () => {
-    try {
-      const modifyComputeUnits = anchor.web3.ComputeBudgetProgram.setComputeUnitLimit({ 
-        units: 1_000_000 
-      });
-      
-      await program.methods
-        .updateGlobalConfig(
-          null, // deposit_fee_rate
-          null, // withdrawal_fee_rate
-          20000 // fee_error_margin (200% - invalid)
-        )
-        .accounts({
-          globalConfig: globalConfigPDA,
-          authority: authority.publicKey,
-        })
-        .signers([authority])
-        .preInstructions([modifyComputeUnits])
-        .rpc();
-
-      expect.fail("Transaction should have failed due to invalid fee error margin");
-    } catch (error) {
-      const errorString = error.toString();
-      expect(
-        errorString.includes("0x1776") || 
-        errorString.includes("InvalidFeeRate") ||
-        errorString.includes("custom program error")
-      ).to.be.true;
-    }
-  });
-
-  it("Global config update with null values leaves existing values unchanged", async () => {
-    // Get the current global config values
-    const initialConfig = await program.account.globalConfig.fetch(globalConfigPDA);
-    
-    const modifyComputeUnits = anchor.web3.ComputeBudgetProgram.setComputeUnitLimit({ 
-      units: 1_000_000 
-    });
-    
-    // Update with all null values
-    await program.methods
-      .updateGlobalConfig(
-        null, // deposit_fee_rate
-        null, // withdrawal_fee_rate
-        null  // fee_error_margin
-      )
-      .accounts({
-        globalConfig: globalConfigPDA,
-        authority: authority.publicKey,
-      })
-      .signers([authority])
-      .preInstructions([modifyComputeUnits])
-      .rpc();
-
-    // Verify all values remain unchanged
-    const updatedConfig = await program.account.globalConfig.fetch(globalConfigPDA);
-    expect(updatedConfig.depositFeeRate).to.equal(initialConfig.depositFeeRate);
-    expect(updatedConfig.withdrawalFeeRate).to.equal(initialConfig.withdrawalFeeRate);
-    expect(updatedConfig.feeErrorMargin).to.equal(initialConfig.feeErrorMargin);
   });
 
   it("Succeeds with valid SOL mint address", async () => {
@@ -6465,7 +5760,7 @@ describe("zkcash", () => {
         recipient: recipient.publicKey,
         feeRecipientAccount: FEE_RECIPIENT_ACCOUNT,
         treeTokenAccount: treeTokenAccountPDA,
-        globalConfig: globalConfigPDA,
+        
         signer: randomUser.publicKey,
         systemProgram: anchor.web3.SystemProgram.programId
       })

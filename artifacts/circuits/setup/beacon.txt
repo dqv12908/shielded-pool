@@ -1,0 +1,1 @@
+beacon: sha256(mainnet blockhash 4JjF9RmiidjHNDpyAWB94HAYnfokiyKnkSZ1SuRNE3Fo, slot ~472176567) = 7b67836c81e5a48046379050c36decd5261cb3c304ce9e6451d8771fc1802063

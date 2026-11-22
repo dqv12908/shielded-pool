@@ -1,0 +1,31 @@
+[INFO]  snarkJS: Reading r1cs
+[INFO]  snarkJS: Reading tauG1
+[INFO]  snarkJS: Reading tauG2
+[INFO]  snarkJS: Reading alphatauG1
+[INFO]  snarkJS: Reading betatauG1
+[INFO]  snarkJS: Circuit hash: 
+		14a4e367 5a548578 41163297 df5c115f
+		bc3fe3f3 c1abff15 7bc237c3 3326cf01
+		0dbb12ae 82c22bb2 16fc37c4 a6e09b06
+		16f18362 e37275f9 f5f03f88 46cd3a1f
+[INFO]  snarkJS: Circuit Hash: 
+		14a4e367 5a548578 41163297 df5c115f
+		bc3fe3f3 c1abff15 7bc237c3 3326cf01
+		0dbb12ae 82c22bb2 16fc37c4 a6e09b06
+		16f18362 e37275f9 f5f03f88 46cd3a1f
+[INFO]  snarkJS: -------------------------
+[INFO]  snarkJS: contribution #2 Final beacon: Solana mainnet blockhash 4JjF9RmiidjHNDpyAWB94HAYn:
+		22d6c41d 991bb501 ee92ae79 c92bd531
+		0e248277 7354dc13 abb057d3 d68e78c0
+		a0aaf766 5dbbc0d1 70021cac 0a06051a
+		7a30b596 a0e73cfc 73e24adf b681035d
+[INFO]  snarkJS: Beacon generator: 7b67836c81e5a48046379050c36decd5261cb3c304ce9e6451d8771fc1802063
+[INFO]  snarkJS: Beacon iterations Exp: 10
+[INFO]  snarkJS: -------------------------
+[INFO]  snarkJS: contribution #1 shielded-pool independent contribution:
+		6aa5f662 ac5f08f5 32be304e eb375cf6
+		7ea0429d 4275ad6b 25c8b201 062402ba
+		e5616d0a a1bd4368 1673a142 a09b3273
+		0b1b0d36 62b4434f c4256c06 909e80d4
+[INFO]  snarkJS: -------------------------
+[INFO]  snarkJS: ZKey Ok!
